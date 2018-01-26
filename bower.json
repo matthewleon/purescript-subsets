@@ -12,7 +12,9 @@
     "purescript-maybe": "^3.0.0",
     "purescript-group": "^3.2.1",
     "purescript-partial": "^1.2.1",
-    "purescript-proxy": "^2.1.0"
+    "purescript-proxy": "^2.1.0",
+    "purescript-integers": "^3.2.0",
+    "purescript-typelevel-prelude": "matthewleon/purescript-typelevel-prelude#notequal"
   },
   "devDependencies": {
     "purescript-psci-support": "^3.0.0"

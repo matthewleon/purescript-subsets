@@ -6,14 +6,17 @@ import Data.Maybe (Maybe(Just, Nothing))
 import Data.Subset (class Subset, defaultAdd, defaultZero, defaultMul, defaultOne)
 import Type.Proxy (Proxy(Proxy))
 
-newtype NonZeroInt = NonZeroInt Int
+newtype NonNegativeInt = NonNegativeInt Int
 
-instance subsetIntNonZeroInt :: Subset Int NonZeroInt where
-  toSuper (NonZeroInt x) = x
-  fromSuper x = if x >= 0 then Just (NonZeroInt x) else Nothing
+instance subsetNonNegativeIntInt :: Subset NonNegativeInt Int where
+  toSuper (NonNegativeInt x) = x
+  fromSuper x = if x >= 0 then Just (NonNegativeInt x) else Nothing
 
-instance semiringNonZeroInt :: Semiring NonZeroInt where
-  add = defaultAdd (Proxy :: Proxy Int)
-  zero = defaultZero (Proxy :: Proxy Int)
-  mul = defaultMul (Proxy :: Proxy Int)
-  one = defaultOne (Proxy :: Proxy Int)
+instance semiringNonNegativeInt :: Semiring NonNegativeInt where
+  add = defaultAdd int
+  zero = defaultZero int
+  mul = defaultMul int
+  one = defaultOne int
+
+int :: Proxy Int
+int = Proxy
